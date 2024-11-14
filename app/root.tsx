@@ -2,6 +2,8 @@ import { type LinksFunction } from '@remix-run/node'
 import Document from '~/components/shared-layout/Document'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
+import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
+import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -15,6 +17,8 @@ export default function App() {
 	return (
 		<Document nonce={nonce}>
 			<div className="flex h-screen flex-col justify-between">
+				<HeaderWithSearch />
+
 				<div className="flex-1 bg-yellow-300">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega text-black">Welcome to Anima Lazer!</h1>
@@ -42,6 +46,7 @@ export default function App() {
 							</div>
 						</div>
 					</main>
+					<FooterMenuRight />
 				</div>
 			</div>
 		</Document>
