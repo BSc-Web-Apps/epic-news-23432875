@@ -15,22 +15,32 @@ export default function App() {
 	return (
 		<Document nonce={nonce}>
 			<div className="flex h-screen flex-col justify-between">
-				<div className="flex-1">
+				<div className="flex-1 bg-yellow-300">
 					<main className="grid h-full place-items-center">
-						<h1 className="text-mega">Welcome to Anima Lazer!</h1>
-						<p className='text - base text-red-500'>
+						<h1 className="text-mega text-black">Welcome to Anima Lazer!</h1>
+						<p className="text - base h-8 text-red-500">
 							our goal is to make everyone happy!
 						</p>
-						<button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"> 
-							Welcome
-						</button>
-						<button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"> 
-							Welcome
-						</button>
-						<button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"> 
-							Welcome
-						</button>
-
+						<div className="flex gap-12">
+							<div>
+								<p className="text-black"> first news</p>
+								<button className="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-700">
+									Welcome
+								</button>
+							</div>
+							<div>
+								<p className="text-black"> second news </p>
+								<button className="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-700">
+									Welcome
+								</button>
+							</div>
+							<div>
+								<p className="text-black"> third news </p>
+								<button className="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-700">
+									Welcome
+								</button>
+							</div>
+						</div>
 					</main>
 				</div>
 			</div>
