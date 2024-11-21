@@ -27,7 +27,6 @@ const FooterMenuRight = ({
 							<NavLink to="#">Nav Label</NavLink>
 						</div>
 					</div>
-
 					<div className="flex items-center gap-6">
 						<div className="lg:mr-4">
 							<Link to="/signup">
