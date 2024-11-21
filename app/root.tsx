@@ -4,6 +4,8 @@ import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
+import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
+import heroImage from '~/assets/jpg/ai-news.jpg'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -23,6 +25,21 @@ export default function App() {
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega text-black">Welcome to Epic News!</h1>
 
+						<div className="w-full py-16">
+							<HeroCallToAction image={heroImage}>
+								<div className="flex flex-col gap-8 px-8">
+									<h2 className="text-h2 text-black">Welcome to Epic News</h2>
+									<p className="text-lg text-black">
+										Keep up to date with the latest tech news.
+									</p>
+								</div>
+							</HeroCallToAction>
+						</div>
+
+						<h1 className="k text-3xl font-bold text-gray-800">
+							{' '}
+							Latest News:
+						</h1>
 						<div className="container mx-auto grid grid-cols-4 gap-14">
 							<div className="flex h-60 w-80 flex-col justify-between bg-amber-100 p-4">
 								<h3 className="text-3xl font-bold text-gray-800">
@@ -53,6 +70,7 @@ export default function App() {
 							</div>
 						</div>
 
+						<h1 className="text-3xl font-bold text-gray-800">All News:</h1>
 						<div className="container mx-auto grid grid-cols-4 gap-8">
 							<div className="flex h-48 w-48 flex-col justify-between bg-amber-100 p-4">
 								<h3 className="text-3xl font-bold text-gray-800">
