@@ -1,11 +1,12 @@
 import { type LinksFunction } from '@remix-run/node'
+import { Outlet, useLoaderData } from '@remix-run/react'
+import heroImage from '~/assets/jpg/ai-news.jpg'
 import Document from '~/components/shared-layout/Document'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
-import heroImage from '~/assets/jpg/ai-news.jpg'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -22,7 +23,7 @@ export default function App() {
 				<HeaderWithSearch />
 
 				<div className="flex-1 bg-yellow-300">
-					<main className="grid h-full place-items-center">
+					{/* <main className="grid h-full place-items-center">
 						<h1 className="text-mega text-black">Welcome to Epic News!</h1>
 
 						<div className="w-full py-16">
@@ -148,7 +149,8 @@ export default function App() {
 								</button>
 							</div>
 						</div>
-					</main>
+					</main> */}
+					<Outlet />
 					<FooterMenuRight />
 				</div>
 			</div>
