@@ -14,7 +14,6 @@ const FooterMenuRight = ({
 				<Link to="/" className="flex w-20 items-center justify-center lg:w-24">
 					<img src={logo} alt="logo assignment" className="w-30" />
 				</Link>
-
 				<div className="lg:flex">
 					<div className="dark:text-dark-secondary-foreground flex items-start gap-6 py-8 font-bold text-secondary-foreground lg:mr-24">
 						<div>
