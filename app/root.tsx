@@ -1,7 +1,10 @@
 import { type LinksFunction } from '@remix-run/node'
+import { Outlet } from '@remix-run/react'
 import Document from '~/components/shared-layout/Document'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
+import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
+import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -15,10 +18,11 @@ export default function App() {
 	return (
 		<Document nonce={nonce}>
 			<div className="flex h-screen flex-col justify-between">
-				<div className="flex-1">
-					<main className="grid h-full place-items-center">
-						<h1 className="text-mega">Welcome to Epic News!</h1>
-					</main>
+				<HeaderWithSearch />
+
+				<div className="flex-1 bg-yellow-100">
+					<Outlet />
+					<FooterMenuRight />
 				</div>
 			</div>
 		</Document>

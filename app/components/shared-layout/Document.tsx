@@ -1,6 +1,6 @@
 import { Links, Meta, Scripts, ScrollRestoration } from '@remix-run/react'
 import { ClientHintCheck } from '~/utils/client-hints'
-import { Theme } from '~/utils/theme.server'
+import { type Theme } from '~/utils/theme.server'
 
 interface DocumentProps {
 	children: React.ReactNode
@@ -29,7 +29,7 @@ export default function Document({
 				)}
 				<Links />
 			</head>
-			<body className="bg-background text-foreground">
+			<body className="text-gray-800">
 				{children}
 				<script
 					nonce={nonce}
