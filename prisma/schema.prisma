@@ -26,8 +26,6 @@ model User {
   roles       Role[]
   sessions    Session[]
   connections Connection[]
-
-  Article Article[]
 }
 
 model Note {
@@ -42,14 +40,11 @@ model Note {
   ownerId String
 
   images NoteImage[]
-  images ArticleImage[]
-
 
   // non-unique foreign key
   @@index([ownerId])
   // This helps our order by in the user search a LOT
   @@index([ownerId, updatedAt])
-  ArticleImage ArticleImage[]
 }
 
 model NoteImage {
@@ -66,7 +61,6 @@ model NoteImage {
 
   // non-unique foreign key
   @@index([noteId])
-  Article Article[]
 }
 
 model Article {
@@ -85,7 +79,7 @@ model Article {
   category    ArticleCategory? @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   categoryId  String?
 
-  images NoteImage[]
+  images ArticleImage[]
 
   // non-unique foreign key
   @@index([ownerId])
@@ -103,13 +97,10 @@ model ArticleImage {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  note   Note   @relation(fields: [noteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  noteId String
-    article     Article   @relation(fields: [articleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  article     Article   @relation(fields: [articleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   articleId   String
 
   // non-unique foreign key
-  @@index([noteId])
   @@index([articleId])
 }
 model ArticleCategory {

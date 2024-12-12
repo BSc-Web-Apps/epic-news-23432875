@@ -1,7 +1,7 @@
 import { type MetaFunction } from '@remix-run/node'
 import HeroCallToAction from '#app/components/organisms/Hero/HeroCallToAction.tsx'
 import heroImage from '~/assets/jpg/ai-news.jpg'
-
+import ArticleCard from '~/components/organisms/ArticleCard.tsx'
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 
 export default function Index() {
