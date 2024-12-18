@@ -1,5 +1,5 @@
 import { type MetaFunction } from '@remix-run/node'
-import { json } from '@remix-run/react'
+import { json, useLoaderData } from '@remix-run/react'
 import HeroCallToAction from '#app/components/organisms/Hero/HeroCallToAction.tsx'
 import { prisma } from '#app/utils/db.server.ts'
 import heroImage from '~/assets/jpg/ai-news.jpg'
@@ -21,6 +21,7 @@ export async function loader() {
 }
 
 export default function Index() {
+	const { allArticles } = useLoaderData<typeof loader>()
 	return (
 		<main className="grid h-full place-items-center">
 			<h1 className="text-mega text-black">Welcome to Epic News!</h1>
@@ -128,13 +129,13 @@ export default function Index() {
 				<h2 className="mb-8 text-h2 font-normal">Latest news</h2>
 
 				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-					{AllArticles.length > 0 ? (
+					{allArticles.length > 0 ? (
 						allArticles.map(article => (
 							<ArticleCard
 								key={article.id}
 								title={article.title}
 								category={article.category?.name}
-								imageId={article.images[0]?.id}
+								// imageId={article.images[0]?.id}
 							/>
 						))
 					) : (

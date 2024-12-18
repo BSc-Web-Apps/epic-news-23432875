@@ -7,8 +7,11 @@ interface SelectorGroupProps {
 	initialValue?: string
 }
 
-export default function SelectorGroup({ options name,
-	initialValue, }: SelectorGroupProps) {
+export default function SelectorGroup({
+	options,
+	name,
+	initialValue,
+}: SelectorGroupProps) {
 	let [selectedValue, setSelectedValue] = useState(initialValue ?? '')
 
 	return (

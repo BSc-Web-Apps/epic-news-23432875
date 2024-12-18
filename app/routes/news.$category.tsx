@@ -34,7 +34,7 @@ export default function NewsCategoryPage() {
 					<div
 						className="bg-red-900 p-4"
 						key={article.id}
-						articleid={article.id}
+						// articleid={article.id}
 					>
 						<h3>{article.title}</h3>
 						<p>{article.category?.name || 'General News'}</p>
