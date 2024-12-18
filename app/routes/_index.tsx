@@ -1,8 +1,23 @@
 import { type MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/react'
 import HeroCallToAction from '#app/components/organisms/Hero/HeroCallToAction.tsx'
+import { prisma } from '#app/utils/db.server.ts'
 import heroImage from '~/assets/jpg/ai-news.jpg'
 import ArticleCard from '~/components/organisms/ArticleCard.tsx'
+
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
+export async function loader() {
+	const allArticles = await prisma.article.findMany({
+		select: {
+			id: true,
+			title: true,
+			category: { select: { name: true } },
+			images: { select: { id: true } },
+		},
+	})
+
+	return json({ allArticles })
+}
 
 export default function Index() {
 	return (
@@ -105,6 +120,25 @@ export default function Index() {
 					<button className="rounded bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-700">
 						Full Article
 					</button>
+				</div>
+			</div>
+
+			<div className="container py-16">
+				<h2 className="mb-8 text-h2 font-normal">Latest news</h2>
+
+				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+					{allArticles.length > 0 ? (
+						allArticles.map(article => (
+							<ArticleCard
+								key={article.id}
+								title={article.title}
+								category={article.category?.name}
+								imageId={article.images[0]?.id}
+							/>
+						))
+					) : (
+						<p>No articles found</p>
+					)}
 				</div>
 			</div>
 		</main>

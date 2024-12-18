@@ -2,7 +2,13 @@ import { Link, useMatches } from '@remix-run/react'
 import { SearchBar } from '../molecules/SearchBar'
 import LoginOrUserDropdown from './LoginOrUserDropdown'
 
-export default function HeaderWithSearch() {
+interface HeaderWithSearchProps {
+	isAdminUser: boolean
+}
+
+export default function HeaderWithSearch({
+	isAdminUser,
+}: HeaderWithSearchProps) {
 	const matches = useMatches()
 	const isOnSearchPage = matches.find(m => m.id === 'routes/users+/index')
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />

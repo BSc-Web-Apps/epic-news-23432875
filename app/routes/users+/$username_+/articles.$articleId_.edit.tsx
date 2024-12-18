@@ -40,13 +40,13 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 		},
 	})
 	invariantResponse(article, 'Not found', { status: 404 })
-	return json({ article: article })
+	return json({ article: article, categories })
 }
 
 export default function ArticleEdit() {
 	const data = useLoaderData<typeof loader>()
 
-	return <ArticleEditor article={data.article} />
+	return <ArticleEditor categories={data.categories} article={data.article} />
 }
 
 export function ErrorBoundary() {
