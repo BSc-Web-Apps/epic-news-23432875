@@ -8,6 +8,7 @@ import ArticleCard from '~/components/organisms/ArticleCard.tsx'
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 export async function loader() {
 	const allArticles = await prisma.article.findMany({
+		where: { isPublished: true },
 		select: {
 			id: true,
 			title: true,
@@ -127,7 +128,7 @@ export default function Index() {
 				<h2 className="mb-8 text-h2 font-normal">Latest news</h2>
 
 				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-					{allArticles.length > 0 ? (
+					{AllArticles.length > 0 ? (
 						allArticles.map(article => (
 							<ArticleCard
 								key={article.id}
