@@ -1,15 +1,41 @@
-import { useMatches } from '@remix-run/react'
+import { Link, useMatches } from '@remix-run/react'
 import { SearchBar } from '../molecules/SearchBar'
 import LoginOrUserDropdown from './LoginOrUserDropdown'
 
-export default function HeaderWithSearch() {
+interface HeaderWithSearchProps {
+	isAdminUser: boolean
+}
+
+export default function HeaderWithSearch({
+	isAdminUser,
+}: HeaderWithSearchProps) {
 	const matches = useMatches()
 	const isOnSearchPage = matches.find(m => m.id === 'routes/users+/index')
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />
 
 	return (
-		<header className="bg-primary/10 py-6 dark:bg-dark-primary/10">
+		<header className="bg-yellow-950 py-6">
 			<nav className="container flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
+				<div className="flex flex-1 justify-center gap-8">
+					<Link
+						to="/news"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						News
+					</Link>
+					<Link
+						to="/about-us"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						About us
+					</Link>
+					<Link
+						to="/contact-us"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						Contact Us
+					</Link>
+				</div>
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 					{searchBar}
 				</div>
