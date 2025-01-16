@@ -1,6 +1,6 @@
 import { invariant } from '@epic-web/invariant'
 import { type LoaderFunctionArgs, json } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 import { prisma } from '~/utils/db.server.ts'
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -26,19 +26,21 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function NewsCategoryPage() {
 	const { category, filteredArticles } = useLoaderData<typeof loader>()
+	console.log({ filteredArticles })
+
 	return (
 		<div className="container py-16">
 			<h2 className="mb-4 text-h2">{category}</h2>
 			<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
 				{filteredArticles.map(article => (
-					<div
+					<Link
+						to={`/article/${article.id}`}
 						className="bg-red-900 p-4"
 						key={article.id}
-						// articleid={article.id}
 					>
 						<h3>{article.title}</h3>
 						<p>{article.category?.name || 'General News'}</p>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>

@@ -5,9 +5,7 @@ export default function NewsPage() {
 		<main className="flex flex-col py-24">
 			<div className="container py-16">
 				<h1 className="text-3xl font-bold text-gray-800">News</h1>
-				<h2 className="text-4xl">
-					Select a news category from the choices above...
-				</h2>
+				<h2 className="text-4xl"></h2>
 
 				<div className="flex space-x-4 py-4">
 					<NavLink
