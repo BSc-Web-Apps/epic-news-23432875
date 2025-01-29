@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-=======
-import { Link } from '#node_modules/@remix-run/react/dist'
->>>>>>> Stashed changes
 import {
 	MdOutlineBusinessCenter,
 	MdOutlineTheaters,

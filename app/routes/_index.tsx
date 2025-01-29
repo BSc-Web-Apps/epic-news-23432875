@@ -3,7 +3,7 @@ import { json, useLoaderData } from '@remix-run/react'
 import HeroCallToAction from '#app/components/organisms/Hero/HeroCallToAction.tsx'
 import { prisma } from '#app/utils/db.server.ts'
 import heroImage from '~/assets/jpg/ai-news.jpg'
-import ArticleCard from '~/components/organisms/ArticleCard.tsx'
+import ArticleCard from '#app/components/organisms/ArticleCard.tsx'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 export async function loader() {
