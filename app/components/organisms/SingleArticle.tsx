@@ -7,7 +7,7 @@ import {
 	MdOutlineNewspaper,
 } from 'react-icons/md'
 import { toTitleCase } from '#app/utils/stringUtils.js'
-import siteLogo from '~/assets/svg/site-logo.svg'
+import siteLogo from '~/assets/png/logo-assignment.png'
 import { getArticleImgSrc } from '~/utils/misc.js'
 
 interface SingleArticleProps {

@@ -1,7 +1,7 @@
 import { Link, NavLink } from '@remix-run/react'
 import { Button } from '#app/components/atoms/Button'
 import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
-import logo from '~/assets/png/logo assignment.png'
+import logo from '~/assets/png/logo-assignment.png'
 import { type FooterProps } from './FooterBasic'
 
 const FooterMenuRight = ({
